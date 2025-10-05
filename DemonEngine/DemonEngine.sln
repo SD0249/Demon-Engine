@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemonEngine_Window", "DemonEngine_Window\DemonEngine_Window.vcxproj", "{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemonEngine_SOURCE", "DemonEngine_SOURCE\DemonEngine_SOURCE.vcxitems", "{B73B8926-4AAF-406C-874A-F8ED3F26E2D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Debug|x64.ActiveCfg = Debug|x64
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Debug|x64.Build.0 = Debug|x64
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Debug|x86.ActiveCfg = Debug|Win32
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Debug|x86.Build.0 = Debug|Win32
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Release|x64.ActiveCfg = Release|x64
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Release|x64.Build.0 = Release|x64
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Release|x86.ActiveCfg = Release|Win32
+		{C3C67279-C9F6-41A9-AFF3-7BB7C7BCC231}.Release|x86.Build.0 = Release|Win32
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Debug|x64.ActiveCfg = Debug|x64
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Debug|x64.Build.0 = Debug|x64
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Debug|x86.ActiveCfg = Debug|Win32
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Debug|x86.Build.0 = Debug|Win32
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Release|x64.ActiveCfg = Release|x64
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Release|x64.Build.0 = Release|x64
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Release|x86.ActiveCfg = Release|Win32
+		{1A17F755-5A93-43DF-A2D8-AE6F43CC19DD}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC7389E6-5E85-41AF-BC11-3F78FDD02703}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		DemonEngine_SOURCE\DemonEngine_SOURCE.vcxitems*{1a17f755-5a93-43df-a2d8-ae6f43cc19dd}*SharedItemsImports = 4
+		DemonEngine_SOURCE\DemonEngine_SOURCE.vcxitems*{b73b8926-4aaf-406c-874a-f8ed3f26e2d1}*SharedItemsImports = 9
+	EndGlobalSection
+EndGlobal
