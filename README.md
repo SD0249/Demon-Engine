@@ -6,6 +6,7 @@
 *********************************************************************
 ## Application & Game Object <br />
 - Challenge: How can different Game Objects move with different Input Systems? <br />
+
 Option 1: Using Function Pointers / std::function <br />
   - Very simple, easy to assign Lamdas, free functions, or member functions
   - Great for "data-driven" behavior <br />
