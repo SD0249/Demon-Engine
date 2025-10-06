@@ -16,13 +16,13 @@ Game Object is a general class that supports the transformation of each object, 
 - Challenge: How can different Game Objects move with different Input Systems? <br />
 
 Option 1: Using Function Pointers / std::function <br />
-✅ Very simple, easy to assign Lamdas(inline, on-the-fly functions), free functions, or member functions
-✅ Great for "data-driven" behavior
-❌ Lose Type Saftey and Structure
+✅ Very simple, easy to assign Lamdas(inline, on-the-fly functions), free functions, or member functions <br />
+✅ Great for "data-driven" behavior <br />
+❌ Lose Type Saftey and Structure <br />
 ❌ Harder to have persistent state in input handler (Possible for Lamdas to capture state or functor objects though)
 
 Option 2: Using Inheritance / State Pattern <br />
-✅ Clean Object Oriented Programming separation
-✅ Easier to Maintain complex Input systems 
-✅ Each behavior can have its own internal state
+✅ Clean Object Oriented Programming separation <br />
+✅ Easier to Maintain complex Input systems <br />
+✅ Each behavior can have its own internal state <br />
 ❌ Less flexible for quick changes or data-driven setups 
