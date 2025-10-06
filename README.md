@@ -1,6 +1,6 @@
 # Demon-Engine
-This Engine was built because I found exisiting solutions too abstract for learning. I wanted to understand everything from the game loop to the rendering pipeline. <br />
-*Note: Faraday will be a plug in for this engine to use later <br /> <br />
+This Engine was built because I found exisiting solutions too abstract for learning. I wanted to understand everything from the game loop to the rendering pipeline. <br /> <br />
+*Note: Faraday will be a plug in for this engine to use later <br /> 
 * Side Note_The Reason for the Name 'Demon'
 *********************************************************************
 ## Window API (Window Class / Device Context)
