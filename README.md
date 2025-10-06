@@ -1,6 +1,7 @@
 # Demon-Engine
-- Main Objective : A Custom Game Engine made with the purpose to deepen my understanding of the subject. <br />
-*Note: Faraday will be a plug in for this engine to use later
+This Engine was built because I found exisiting solutions too abstract for learning. I wanted to understand everything from the game loop to the rendering pipeline. <br />
+*Note: Faraday will be a plug in for this engine to use later <br /> <br />
+* Side Note_The Reason for the Name 'Demon'
 *********************************************************************
 ## Window API (Window Class / Device Context)
 *********************************************************************
