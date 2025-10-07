@@ -5,6 +5,7 @@ This Engine was built because I found exisiting solutions too abstract for learn
 *********************************************************************
 ## Table of Contents
 [Window API](#window-api) <br />
+
 [Application & Game Object](#application-&-game-object)
 *********************************************************************
 ### Window API (Window Class / Device Context)
