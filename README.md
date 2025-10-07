@@ -4,7 +4,7 @@ This Engine was built because I found exisiting solutions too abstract for learn
 @ Side Note_The Reason for the Name 'Demon'
 *********************************************************************
 ## Table of Contents
-[Window API](#window-api)
+[Window API](#window-api) <br />
 [Application & Game Object](#application-&-game-object)
 *********************************************************************
 ### Window API (Window Class / Device Context)
@@ -59,7 +59,7 @@ int main() {
 ❌ Lose Type Saftey and Structure <br />
 ❌ Harder to have persistent state in input handler (Possible for Lamdas to capture state or functor objects though)
 
-Option 2: Using Inheritance / State Pattern <br />
+**Option 2: Using Inheritance / State Pattern** <br />
 ```
 #include <memory>
 // Abstract Base Class of Input
@@ -109,4 +109,7 @@ int main() {
 ✅ Clean Object Oriented Programming separation <br />
 ✅ Easier to Maintain complex Input systems <br />
 ✅ Each behavior can have its own internal state <br />
-❌ Less flexible for quick changes or data-driven setups 
+❌ Less flexible for quick changes or data-driven setups <br />
+
+-> Chosen Option 2! (Hybrid might also be good, option 2 for setting up classes and mapping on the fly with Lamdas -> This makes it easy to load data from JSON)
+- Reason: Easier to Update into Advanced Input detection system with usage of Lamdas or Functor Structs, making it more composable and configurable, while maintaining its decoupled structured aspect.
