@@ -3,12 +3,16 @@ This Engine was built because I found exisiting solutions too abstract for learn
 *Note: Faraday(Physics Engine) will be a plug in for this engine to use later <br /> <br />
 @ Side Note_The Reason for the Name 'Demon'
 *********************************************************************
-## Window API (Window Class / Device Context)
+## Table of Contents
+[Window API](#window-api)
+[Application & Game Object](#application-&-game-object)
+*********************************************************************
+### Window API (Window Class / Device Context)
 Editor Window, Inspector Window, Scene Window... They are all made up of various windows. To generate them, understanding the Windows Class and **wWinMain** Function is crucial.
 
 **Device Context**(DC) is where information related to rendering(drawing) on the window goes. It is part of the Graphics Users Interface(GDI) and is a collection of GDI Objects. <br />
 *********************************************************************
-## Application & Game Object <br />
+### Application & Game Object <br />
 Application class instance is called **every frame** and manages the overall flow of the program(in this case, engine).
 
 Game Object is a general class that supports the transformation of each object, and it represents all the objects you can place on a game scene/level.
@@ -18,34 +22,34 @@ Game Object is a general class that supports the transformation of each object, 
 Option 1: Using Function Pointers / std::function <br />
 ```
 #include <functional>
-class MyClass{
+class GameObject {
 // Have a function pointers as member of the class
 private:
-  std::function<void()> action_;
+  std::function<void()> move_;
 // Have a constructor take in the function pointer as an argument
 public:
-  MyClass(std::function<void()> action) : action_(std::move(action))
-  void executeAction() {
-    if(action_) {
-      action_();
+  MyClass(std::function<void()> move) : move_(std::move(move)) {}
+  void executeMove() {
+    if(move_) {
+      move_();
     }
   }
 }
 
-void specificAction1() {
+void WASDMove() {
   // Do something
 }
 
-void specificAction2() {
+void arrowMove() {
   // Do something
 }
 
 int main() {
-  MyClass obj1(specificAction1);
-  MyClass obj2(specificAction2);
+  GameObject obj1(WASDMove);
+  GameObject obj2(arrowMove);
 
-  obj1.executeAction();  
-  obj2.executeAction();
+  obj1.executeMove();  // WASDMove() Executed
+  obj2.executeMove();  // arrowMove() Executed
 
   return 0;
 }
@@ -56,6 +60,52 @@ int main() {
 ❌ Harder to have persistent state in input handler (Possible for Lamdas to capture state or functor objects though)
 
 Option 2: Using Inheritance / State Pattern <br />
+```
+#include <memory>
+// Abstract Base Class of Input
+class InputState {
+public:
+  virtual void HandleInput(GameObject& obj) = 0;
+  virtual ~InputState() = default;
+};
+
+// Implementations of the Base case
+class WASDInput {
+public:
+  void HandleInput(GameObject& obj) override {
+  // Write Code to handle Input
+  }
+};
+
+class ArrowInput {
+public:
+  void HandleInput(GameObject& obj) override {
+  // Write Code to handle Input
+  }
+};
+
+class GameObject {
+private:
+  std::unique_ptr<InputState> inputState_;
+
+public:
+  GameObject(std::unique_ptr<InputState> inputState) : inputState_(std::move(inputState)) {}
+  void Update() {
+    inputState_->HandleInput(*this);
+    // More of update logic!
+  }
+};
+
+int main() {
+  GameObject obj1(std::make_unique<WASDInput>());
+  GameObject obj2(std::make_unique<ArrowInput>());
+
+  obj1.Update();  // WASDInput's HandleInput is executed
+  obj2.Update();  // ArrowInput's HandleInput is executed
+
+  return 0;
+}
+```
 ✅ Clean Object Oriented Programming separation <br />
 ✅ Easier to Maintain complex Input systems <br />
 ✅ Each behavior can have its own internal state <br />
