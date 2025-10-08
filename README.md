@@ -1,5 +1,5 @@
 # Demon-Engine
-This Engine was built because I found exisiting solutions too abstract for learning. I wanted to understand everything from the game loop to the rendering pipeline. <br /> 
+This Engine was built because I found exisiting solutions too abstract for learning, and I wanted to understand everything from the game loop to the rendering pipeline. <br /> 
 *Note: Faraday(Physics Engine) will be a plug in for this engine to use later <br /> <br />
 @ Side Note_The Reason for the Name 'Demon'
 *********************************************************************
