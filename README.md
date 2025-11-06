@@ -21,7 +21,7 @@ Game Object is a general class that supports the transformation of each object, 
 - Challenge: How can multiple game object instances from one Game Object class move in different input systems? <br />
 
 Option 1: Using Function Pointers / std::function <br />
-```
+```cpp
 #include <functional>
 class GameObject {
 // Have a function pointers as member of the class
@@ -61,7 +61,7 @@ int main() {
 ❌ Harder to have persistent state in input handler (Possible for Lamdas to capture state or functor objects though)
 
 **Option 2: Using Inheritance / State Pattern** <br />
-```
+```cpp
 #include <memory>
 // Abstract Base Class of Input
 class InputState {
