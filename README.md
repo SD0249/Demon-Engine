@@ -29,13 +29,13 @@ private:
   std::function<void()> move_;
 // Have a constructor take in the function pointer as an argument
 public:
-  MyClass(std::function<void()> move) : move_(std::move(move)) {}
+  GameObject(std::function<void()> move) : move_(move) {}
   void executeMove() {
     if(move_) {
       move_();
     }
   }
-}
+};
 
 void WASDMove() {
   // Do something
@@ -63,6 +63,10 @@ int main() {
 **Option 2: Using Inheritance / State Pattern** <br />
 ```cpp
 #include <memory>
+
+// Forward Declaration
+class GameObject;
+
 // Abstract Base Class of Input
 class InputState {
 public:
@@ -71,14 +75,14 @@ public:
 };
 
 // Implementations of the Base case
-class WASDInput {
+class WASDInput : public InputState {
 public:
   void HandleInput(GameObject& obj) override {
   // Write Code to handle Input
   }
 };
 
-class ArrowInput {
+class ArrowInput : public InputState {
 public:
   void HandleInput(GameObject& obj) override {
   // Write Code to handle Input
@@ -90,7 +94,7 @@ private:
   std::unique_ptr<InputState> inputState_;
 
 public:
-  GameObject(std::unique_ptr<InputState> inputState) : inputState_(std::move(inputState)) {}
+  GameObject(std::unique_ptr<InputState> inputState) : inputState_(inputState) {}
   void Update() {
     inputState_->HandleInput(*this);
     // More of update logic!
