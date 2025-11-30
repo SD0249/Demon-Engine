@@ -6,7 +6,10 @@ This Engine was built because I found exisiting solutions too abstract for learn
 ## Table of Contents
 [Window API](#window-api) <br />
 
-[Application & Game Object](#application-&-game-object)
+[Application & Game Object](#application-&-game-object) <br />
+
+[Input System](#input-system)
+
 *********************************************************************
 ### Window API (Window Class / Device Context)
 Editor Window, Inspector Window, Scene Window... They are all made up of various windows. To generate them, understanding the Windows Class and **wWinMain** Function is crucial.
@@ -118,3 +121,5 @@ int main() {
 
 -> Chosen Option 2! (Hybrid might also be good, option 2 for setting up classes and mapping on the fly with Lamdas -> This makes it easy to load data from JSON)
 - Reason: Easier to Update into Advanced Input detection system with usage of Lamdas or Functor Structs, making it more composable and configurable, while maintaining its decoupled structured aspect.
+*********************************************************************
+### Input System <br />
