@@ -6,20 +6,16 @@ namespace Demon {
 		: mHwnd(nullptr)
 		, mHdc(nullptr)
 	{
-
 	}
 
 	Application::~Application()
 	{
-
 	}
 
 	void Application::Initialize(HWND hwnd)
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
-		
-		mPlayer.SetPosition(0, 0);
 	}
 
 	void Application::Run()
@@ -33,37 +29,11 @@ namespace Demon {
 	{
 		// Game Object Update was handled directly here. It shouldn't!
 		// Game Object by OOP should handle it's own update
-		/*
-		//// Retrieve the position from Game Object Member function
-		//float x = mPlayer.GetPositionX();
-		//float y = mPlayer.GetPositionY();
-
-		//// Integrate changes with input
-		//if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		//{
-		//	x -= 0.01f;
-		//}
-
-		//if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		//{
-		//	x += 0.01f;
-		//}
-
-		//if (GetAsyncKeyState(VK_UP) & 0x8000)
-		//{
-		//	y -= 0.01f;
-		//}
-
-		//if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-		//{
-		//	y += 0.01f;
-		//}
-
-		//// Put the changes back to the object position
-		//mPlayer.SetPosition(x, y); */
+		// Put the changes back to the object position
 		// Condensed like this
-		mPlayer.Update();
-
+		Player1.Update();
+		Player2.Update();
+		Player3.Update();
 	}
 
 	void Application::LateUpdate()
@@ -77,27 +47,9 @@ namespace Demon {
 		// Even though we want the player to handle their own drawing, 
 		// they don't have access for HDC, so we should pass that in as an argument
 		// --> OBJECT RENDER LOGIC moved inside Object Rendering (Each object handles their own rendering)
-		/*
-		//// Create blue brush
-		//HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-
-		//// Select the blue brush on DC and DON'T FORGET TO SAVE THE DEFAULT white brush (Returns Handle of previous brush)
-		//HBRUSH oldBrush = (HBRUSH)SelectObject(mHdc, blueBrush);
-
-		//// Player Position retrive after integration (Update)
-		//int x = mPlayer.GetPositionX();
-		//int y = mPlayer.GetPositionY();
-
-		//// Draw a rectangle with the constantly updated value
-		//Rectangle(mHdc, 100 + x, 100 + y, 200 + x, 200 + y);
-
-		//// Select default brush
-		//SelectObject(mHdc, oldBrush);
-
-		//// Delete old brush -> No wasting memory
-		//DeleteObject(blueBrush); 
-		*/
-		mPlayer.Render(mHdc);
+		Player1.Render(mHdc);
+		Player2.Render(mHdc);
+		Player3.Render(mHdc);
 	}
 
 }

@@ -2,7 +2,7 @@
 
 namespace Demon
 {
-	GameObject::GameObject()
+	GameObject::GameObject(std::unique_ptr<InputState> inputState, COLORREF color, std::string shape) : inputState_(std::move(inputState)), color_(color), shape_(shape)
 	{
 	}
 
@@ -12,8 +12,8 @@ namespace Demon
 
 	void GameObject::Update()
 	{
-		// Integrate changes with input
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		// Integrate changes with input (Bitwise AND)
+		/*if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 		{
 			mX -= 0.01f;
 		}
@@ -31,6 +31,36 @@ namespace Demon
 		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 		{
 			mY += 0.01f;
+		}*/
+
+		// Exercise #1
+		float& xAddress = mX;
+		float& yAddress = mY;
+		if (inputState_ != nullptr)
+		{
+			inputState_->HandleInput(xAddress, yAddress);
+		}
+		else
+		{
+			// Can make a logic for it to bounce back when hitting the boundary but I will not lol
+			int probablity = rand() % 100;
+
+			if (probablity < 25)
+			{
+				xAddress += 0.5f;
+			}
+			else if (probablity < 50)
+			{
+				xAddress -= 0.1f;
+			}
+			else if (probablity < 75)
+			{
+				yAddress += 0.7f;
+			}
+			else if (probablity < 100)
+			{
+				yAddress -= 0.4f;
+			}
 		}
 	}
 
@@ -41,20 +71,27 @@ namespace Demon
 
 	void GameObject::Render(HDC hdc)
 	{
-		// Create blue brush
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		// Create color brush
+		HBRUSH colorBrush = CreateSolidBrush(color_);
 
-		// Select the blue brush on DC and DON'T FORGET TO SAVE THE DEFAULT white brush (Returns Handle of previous brush)
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+		// Select the color brush on DC and DON'T FORGET TO SAVE THE DEFAULT white brush (Returns Handle of previous brush)
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, colorBrush);
 
-		// Draw a rectangle with the constantly updated value
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		// Draw a shape with the constantly updated value
+		if (shape_ == "Rectangle")
+		{
+			Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		}
+		else if (shape_ == "Circle")
+		{
+			Ellipse(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		}
 
 		// Select default brush
 		SelectObject(hdc, oldBrush);
 
 		// Delete old brush -> No wasting memory
-		DeleteObject(blueBrush);
+		DeleteObject(colorBrush);
 	}
 }
 
