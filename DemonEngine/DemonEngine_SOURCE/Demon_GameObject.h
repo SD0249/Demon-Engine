@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <random>
+#include "input.h"
 
 namespace Demon
 {
@@ -27,22 +28,22 @@ namespace Demon
 
 		void HandleInput(float& mX, float& mY) {
 
-			if (GetAsyncKeyState(0x44) & 0x8000)
+			if (Input::GetKey(eKeyCode::D))
 			{
 				mX += 0.01f;
 			}
 
-			if (GetAsyncKeyState(0x41) & 0x8000)
+			if (Input::GetKey(eKeyCode::A))
 			{
 				mX -= 0.01;
 			}
 
-			if (GetAsyncKeyState(0x57) & 0x8000)
+			if (Input::GetKey(eKeyCode::W))
 			{
 				mY -= 0.01f;
 			}
 
-			if (GetAsyncKeyState(0x53) & 0x8000)
+			if (Input::GetKey(eKeyCode::S))
 			{
 				mY += 0.01f;
 			}

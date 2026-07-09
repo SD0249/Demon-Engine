@@ -1,4 +1,5 @@
 #include "Demon_Application.h"
+#include "Input.h"
 
 namespace Demon {
 
@@ -16,6 +17,7 @@ namespace Demon {
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
+		Input::Initialize();
 	}
 
 	void Application::Run()
@@ -27,6 +29,9 @@ namespace Demon {
 
 	void Application::Update()
 	{
+		// Update Input
+		Input::Update();
+		
 		// Game Object Update was handled directly here. It shouldn't!
 		// Game Object by OOP should handle it's own update
 		// Put the changes back to the object position
