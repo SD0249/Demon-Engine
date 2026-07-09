@@ -16,6 +16,7 @@ namespace Demon
 		Q, W, E, R, T, Y, U, I, O, P,
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
+		Left, Right, Down, Up,
 		End
 	};
 
@@ -38,6 +39,13 @@ namespace Demon
 		static bool GetKeyDown(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Down; };
 		static bool GetKeyUp(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Up; };
 		static bool GetKey(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Pressed; };
+
+	private:
+		static void createKeys();
+		static void updateKeys();
+		static bool isKeyDown(Input::Key& key);
+		static void updateKeyDown(Input::Key& key);
+		static void updateKeyUp(Input::Key& key);
 
 	private:
 		// Only one instance/state information in class(Each instance of input won't hold different information)

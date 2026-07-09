@@ -42,7 +42,10 @@ namespace Demon
 		}
 		else
 		{
+			// Exercise #2
 			// Can make a logic for it to bounce back when hitting the boundary but I will not lol
+			// Need to retrieve window size and all to do that
+			// Or this could be handled by just looping in the window
 			int probablity = rand() % 100;
 
 			if (probablity < 25)

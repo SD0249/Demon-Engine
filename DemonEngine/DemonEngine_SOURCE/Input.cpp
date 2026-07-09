@@ -1,4 +1,5 @@
 #include "Input.h"
+#include <algorithm>
 
 namespace Demon {
 
@@ -8,13 +9,28 @@ namespace Demon {
 	int ASCII[(UINT)eKeyCode::End]{
 		'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
 		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-		'Z', 'X', 'C', 'V', 'B', 'N', 'M'
+		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
+		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP
 	};
 
 	/// <summary>
-	/// Initialize input state of keys 
+	/// Initialize input state of keys - Called in Application Initialize
 	/// </summary>
 	void Input::Initialize()
+	{
+		createKeys();
+	}
+
+	/// <summary>
+	/// Update each key state - Called in Application Update
+	/// </summary>
+	void Input::Update()
+	{
+		updateKeys();
+	}
+
+
+	void Input::createKeys()
 	{
 		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
 		{
@@ -27,41 +43,56 @@ namespace Demon {
 		}
 	}
 
-	void Input::Update()
+	void Input::updateKeys()
 	{
-		for (size_t i = 0; i < mKeys.size(); i++) {
-			// When key pressed
-			if (GetAsyncKeyState(ASCII[i]) & 0x8000)
-			{
-				// Pressed one frame before
-				if (mKeys[i].pressed == true)
-				{
-					mKeys[i].state = eKeyState::Pressed;
-				}
-				// Wasn't pressed one frame before
-				else
-				{
-					mKeys[i].state = eKeyState::Down;
-				}
+		std::for_each(mKeys.begin(), mKeys.end(), 
+					  [](Input::Key& key) -> void {
+							if (isKeyDown(key))
+							{
+								updateKeyDown(key);
+							}
+							else
+							{
+								updateKeyUp(key);
+							}
+					  });
+	}
 
-				mKeys[i].pressed = true;
-			}
-			// When key not pressed
-			else
-			{
-				// Pressed one frame before
-				if (mKeys[i].pressed == true) {
-					mKeys[i].state = eKeyState::Up;
-				}
-				// Wasn't pressed one frame before
-				else
-				{
-					mKeys[i].state = eKeyState::None;
-				}
+	bool Input::isKeyDown(Input::Key& key)
+	{
+		return GetAsyncKeyState(ASCII[(UINT)key.keyCode]) & 0x8000;
+	}
 
-				mKeys[i].pressed = false;
-			}
+	void Input::updateKeyDown(Input::Key& key)
+	{
+		// Pressed one frame before
+		if (key.pressed == true)
+		{
+			key.state = eKeyState::Pressed;
 		}
+		// Not pressed one frame before
+		else
+		{
+			key.state = eKeyState::Down;
+		}
+
+		key.pressed = true;
+	}
+
+	void Input::updateKeyUp(Input::Key& key)
+	{
+		// Pressed one frame before
+		if (key.pressed == true)
+		{
+			key.state = eKeyState::Up;
+		}
+		// Not pressed one frame before
+		else
+		{
+			key.state = eKeyState::None;
+		}
+
+		key.pressed = false;
 	}
 
 }
