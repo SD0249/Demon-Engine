@@ -3,7 +3,7 @@
 
 namespace Demon {
 
-	std::vector<Input::Key> Input::mKeys{};
+	std::vector<Input::Key> Input::Keys{};
 
 	// ASCII Code of keys
 	int ASCII[(UINT)eKeyCode::End]{
@@ -39,13 +39,13 @@ namespace Demon {
 			key.pressed = false;
 			key.state = eKeyState::None;
 
-			mKeys.push_back(key);
+			Keys.push_back(key);
 		}
 	}
 
 	void Input::updateKeys()
 	{
-		std::for_each(mKeys.begin(), mKeys.end(), 
+		std::for_each(Keys.begin(), Keys.end(), 
 					  [](Input::Key& key) -> void {
 							if (isKeyDown(key))
 							{

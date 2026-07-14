@@ -36,9 +36,11 @@ namespace Demon
 		// Exercise #1
 		float& xAddress = mX;
 		float& yAddress = mY;
+		const float speed = 100.0f;
+
 		if (inputState_ != nullptr)
 		{
-			inputState_->HandleInput(xAddress, yAddress);
+			inputState_->HandleInput(xAddress, yAddress, speed);
 		}
 		else
 		{
@@ -50,19 +52,19 @@ namespace Demon
 
 			if (probablity < 25)
 			{
-				xAddress += 0.5f;
+				xAddress += 0.5f * DTime::DeltaTime();
 			}
 			else if (probablity < 50)
 			{
-				xAddress -= 0.1f;
+				xAddress -= 0.1f * DTime::DeltaTime();
 			}
 			else if (probablity < 75)
 			{
-				yAddress += 0.7f;
+				yAddress += 0.7f * DTime::DeltaTime();
 			}
 			else if (probablity < 100)
 			{
-				yAddress -= 0.4f;
+				yAddress -= 0.4f * DTime::DeltaTime();
 			}
 		}
 	}

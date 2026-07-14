@@ -36,9 +36,9 @@ namespace Demon
 		static void Initialize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Down; };
-		static bool GetKeyUp(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Up; };
-		static bool GetKey(eKeyCode key) { return mKeys[(UINT)key].state == eKeyState::Pressed; };
+		static bool GetKeyDown(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Down; };
+		static bool GetKeyUp(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Up; };
+		static bool GetKey(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Pressed; };
 
 	private:
 		static void createKeys();
@@ -50,7 +50,7 @@ namespace Demon
 	private:
 		// Only one instance/state information in class(Each instance of input won't hold different information)
 		// Can be accessed and changed only by accessing the input class
-		static std::vector<Key> mKeys;
+		static std::vector<Key> Keys;
 	};
 }
 

@@ -4,6 +4,7 @@
 #include <string>
 #include <random>
 #include "input.h"
+#include "DTime.h"
 
 namespace Demon
 {
@@ -17,7 +18,7 @@ namespace Demon
 	// Base Class
 	class InputState {
 	public:
-		virtual void HandleInput(float& mX, float& mY) = 0;	// '= 0' Pure Specifier - Used to declare a Pure Virtual Function
+		virtual void HandleInput(float& mX, float& mY, const float speed) = 0;	// '= 0' Pure Specifier - Used to declare a Pure Virtual Function
 		virtual ~InputState() = default;
 	};
 
@@ -26,26 +27,26 @@ namespace Demon
 	public:
 		WASDInput() {};
 
-		void HandleInput(float& mX, float& mY) {
+		void HandleInput(float& mX, float& mY, const float speed) {
 
 			if (Input::GetKey(eKeyCode::D))
 			{
-				mX += 0.01f;
+				mX += speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::A))
 			{
-				mX -= 0.01;
+				mX -= speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::W))
 			{
-				mY -= 0.01f;
+				mY -= speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::S))
 			{
-				mY += 0.01f;
+				mY += speed * DTime::DeltaTime();
 			}
 		}
 	};
@@ -54,26 +55,26 @@ namespace Demon
 	public:
 		ArrowInput() {};
 
-		void HandleInput(float& mX, float& mY) {
+		void HandleInput(float& mX, float& mY, const float speed) {
 
 			if (Input::GetKey(eKeyCode::Left))
 			{
-				mX -= 0.01f;
+				mX -= speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Right))
 			{
-				mX += 0.01f;
+				mX += speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Up))
 			{
-				mY -= 0.01f;
+				mY -= speed * DTime::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Down))
 			{
-				mY += 0.01f;
+				mY += speed * DTime::DeltaTime();
 			}
 		}
 	};

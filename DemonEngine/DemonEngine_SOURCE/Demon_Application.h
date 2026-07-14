@@ -28,7 +28,7 @@ namespace Demon{
 		// OBJECT ORIENTED PROGRAMMING!
 		GameObject Player1{std::make_unique<WASDInput>(), RGB(0, 0, 255), "Rectangle"};
 		GameObject Player2{std::make_unique<ArrowInput>(), RGB(255, 0, 0), "Circle"};
-		GameObject Player3{};
+		// GameObject Player3{};
 	};
 };
 
