@@ -142,17 +142,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
+   const UINT width = 1600;
+   const UINT height = 900;
+
    // CreateWindow makes all of the information regarding the window inside the memory and returns a window handle of this window
    HWND hWnd = CreateWindowW(szWindowClass, // Determines the Window Class name we are going to create
                              szTitle,       // The title that will show up in the Window's title bar
-                             WS_OVERLAPPEDWINDOW, // The value that determines the structure of a window. Supports various forms
-                             CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, // Determines the location and the size of the Window
+                             WS_OVERLAPPEDWINDOW,                // The value that determines the structure of a window. Supports various forms
+                             CW_USEDEFAULT, 0, width, height,    // Determines the location and the size of the Window
                              nullptr,                            // If there is a parent window, it refers to the parent window handler 
                              nullptr,                            // Determines the handle of the menu for the window to use. By default uses the one defined before in MyRegisterClass, but to override, define one here
                              hInstance,                          // This program's handle
                              nullptr);                           // The place to store things from CREATESTRUCT/Usually uses NULL value
 
-   application.Initialize(hWnd);
+   application.Initialize(hWnd, width, height);
 
    if (!hWnd)
    {
@@ -209,37 +212,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             // Code related to drawing is handled here by DC
             // The things on the window was drawn here, but we are aiming to move this to the render logic
-
             // MOVED TO RENDER LOGIC
-            /*
-            //// Create blue brush
-            //HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-
-            //// Select the blue brush on DC and DON'T FORGET TO SAVE THE DEFAULT white brush (Returns Handle of previous brush)
-            //HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-            //// Draw a rectangle
-            //Rectangle(hdc, 100, 100, 200, 200);
-
-            //// Select default brush
-            //SelectObject(hdc, oldBrush);
-
-            //// Delete old brush -> No wasting memory
-            //DeleteObject(blueBrush);
-
-            //// Do the same thing with pen
-            //HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-            //HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-            //Ellipse(hdc, 200, 200, 300, 300);
-
-            //SelectObject(hdc, oldPen);
-            //DeleteObject(redPen);
-
-            //// Using Stock Objects to draw / Don't need to save the default again, already there as stock object
-            //HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            //oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-            //Rectangle(hdc, 400, 400, 500, 500);
-            //SelectObject(hdc, oldBrush); */
             
             EndPaint(hWnd, &ps);
         }
