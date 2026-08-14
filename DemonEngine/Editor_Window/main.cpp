@@ -17,6 +17,8 @@
 #include "Editor_Window.h"
 
 #include "..\DemonEngine_SOURCE\Demon_Application.h"
+#include "..\DemonEngine_Window\Demon_LoadScenes.h"
+
 
 Demon::Application application;
 
@@ -167,6 +169,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //              But what you need to do here is just to pass in the argument given from the WinMain function
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // Load Scene
+   Demon::LoadScenes();
 
    return TRUE;
 }

@@ -2,7 +2,8 @@
 
 namespace Demon
 {
-	GameObject::GameObject(std::unique_ptr<InputState> inputState, COLORREF color, std::string shape) : inputState_(std::move(inputState)), color_(color), shape_(shape)
+	GameObject::GameObject(std::unique_ptr<InputState> inputState, COLORREF color, std::string shape) 
+		: inputState_(std::move(inputState)), color_(color), shape_(shape), mX(0), mY(0)
 	{
 	}
 
@@ -52,19 +53,19 @@ namespace Demon
 
 			if (probablity < 25)
 			{
-				xAddress += 0.5f * DTime::DeltaTime();
+				xAddress += 0.5f * Time::DeltaTime();
 			}
 			else if (probablity < 50)
 			{
-				xAddress -= 0.1f * DTime::DeltaTime();
+				xAddress -= 0.1f * Time::DeltaTime();
 			}
 			else if (probablity < 75)
 			{
-				yAddress += 0.7f * DTime::DeltaTime();
+				yAddress += 0.7f * Time::DeltaTime();
 			}
 			else if (probablity < 100)
 			{
-				yAddress -= 0.4f * DTime::DeltaTime();
+				yAddress -= 0.4f * Time::DeltaTime();
 			}
 		}
 	}
@@ -85,11 +86,11 @@ namespace Demon
 		// Draw a shape with the constantly updated value
 		if (shape_ == "Rectangle")
 		{
-			Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+			Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
 		}
 		else if (shape_ == "Circle")
 		{
-			Ellipse(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+			Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 		}
 
 		// Select default brush

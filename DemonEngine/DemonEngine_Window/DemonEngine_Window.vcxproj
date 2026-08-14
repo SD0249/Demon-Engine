@@ -128,6 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Demon_LoadScenes.h" />
+    <ClInclude Include="Demon_PlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Demon_PlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

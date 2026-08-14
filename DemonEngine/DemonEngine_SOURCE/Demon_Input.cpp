@@ -1,5 +1,4 @@
-#include "Input.h"
-#include <algorithm>
+#include "Demon_Input.h"
 
 namespace Demon {
 

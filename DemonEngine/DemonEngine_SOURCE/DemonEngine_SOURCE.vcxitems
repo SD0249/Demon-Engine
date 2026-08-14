@@ -17,13 +17,19 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)DTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_SceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Entity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Scene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Input.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)DTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_SceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Entity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Scene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Time.cpp" />
   </ItemGroup>
 </Project>

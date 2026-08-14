@@ -1,10 +1,9 @@
 #pragma once
 #include "CommonInclude.h"
 #include <memory>
-#include <string>
 #include <random>
-#include "input.h"
-#include "DTime.h"
+#include "Demon_Input.h"
+#include "Demon_Time.h"
 
 namespace Demon
 {
@@ -12,7 +11,8 @@ namespace Demon
 	class GameObject;
 
 	//---------------------------------------------------------------
-	// Different Input Implementation for Game Object Instances (State Pattern)
+	// Different Input Implementation for Game Object Instances (Strategy Pattern - just implements the same behavior in different ways)
+	// ** Not State pattern (doesn't have internal state changes(and hence the behavior changes))
 	//---------------------------------------------------------------
 	
 	// Base Class
@@ -31,22 +31,22 @@ namespace Demon
 
 			if (Input::GetKey(eKeyCode::D))
 			{
-				mX += speed * DTime::DeltaTime();
+				mX += speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::A))
 			{
-				mX -= speed * DTime::DeltaTime();
+				mX -= speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::W))
 			{
-				mY -= speed * DTime::DeltaTime();
+				mY -= speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::S))
 			{
-				mY += speed * DTime::DeltaTime();
+				mY += speed * Time::DeltaTime();
 			}
 		}
 	};
@@ -59,22 +59,22 @@ namespace Demon
 
 			if (Input::GetKey(eKeyCode::Left))
 			{
-				mX -= speed * DTime::DeltaTime();
+				mX -= speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Right))
 			{
-				mX += speed * DTime::DeltaTime();
+				mX += speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Up))
 			{
-				mY -= speed * DTime::DeltaTime();
+				mY -= speed * Time::DeltaTime();
 			}
 
 			if (Input::GetKey(eKeyCode::Down))
 			{
-				mY += speed * DTime::DeltaTime();
+				mY += speed * Time::DeltaTime();
 			}
 		}
 	};
@@ -85,7 +85,9 @@ namespace Demon
 
 	public:
 		// Constructor and Destructor
-		GameObject(std::unique_ptr<InputState> inputState = nullptr, COLORREF color = RGB(0, 255, 0), std::string shape = "Rectangle");
+		GameObject(std::unique_ptr<InputState> inputState = std::make_unique<WASDInput>(),	// Default: WASD Input
+				   COLORREF color = RGB(rand() % 256, rand() % 256, rand() % 256),			// Default: Random Color
+				   std::string shape = "Rectangle");										// Default: Rectangle
 		~GameObject();
 
 		void Update();

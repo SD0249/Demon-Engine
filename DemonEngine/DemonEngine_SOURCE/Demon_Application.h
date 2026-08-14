@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "Demon_GameObject.h"
+#include "Demon_SceneManager.h"
 
 namespace Demon{
 
@@ -21,6 +22,13 @@ namespace Demon{
 		void Render(); 
 
 	private:
+		void clearRenderTarget();
+		void copyRenderTarget();
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeEtc();
+
+	private:
 		HWND mHwnd; // Handle value for this current window returned from Windows.h.
 		HDC mHdc;   // This will also be used a lot for drawing and moving the drawing on window to Render logic here
 
@@ -35,7 +43,10 @@ namespace Demon{
 		// OBJECT ORIENTED PROGRAMMING!
 		GameObject Player1{std::make_unique<WASDInput>(), RGB(0, 0, 255), "Rectangle"};
 		GameObject Player2{std::make_unique<ArrowInput>(), RGB(255, 0, 0), "Circle"};
-		// GameObject Player3{};
+
+
+		// In one scene, there are various game objects. Application will hold multiple scene objects that holds their game objects
+		// std::vector<Scene*> scenes;
 	};
 };
 

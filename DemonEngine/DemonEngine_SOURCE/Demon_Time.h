@@ -3,7 +3,7 @@
 
 namespace Demon
 {
-	class DTime
+	class Time
 	{
 	public:
 		static void Initialize();

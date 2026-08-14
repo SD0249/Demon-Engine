@@ -1,13 +1,13 @@
-#include "DTime.h"
+#include "Demon_Time.h"
 
 namespace Demon
 {
-	LARGE_INTEGER DTime::CpuFrequency = {};
-	LARGE_INTEGER DTime::PrevFrequency = {};
-	LARGE_INTEGER DTime::CurrentFrequency = {};
-	float		  DTime::DeltaTimeValue = 0.0f;
+	LARGE_INTEGER Time::CpuFrequency = {};
+	LARGE_INTEGER Time::PrevFrequency = {};
+	LARGE_INTEGER Time::CurrentFrequency = {};
+	float		  Time::DeltaTimeValue = 0.0f;
 
-	void DTime::Initialize() {
+	void Time::Initialize() {
 		// Retrieve CPU's frequency
 		QueryPerformanceFrequency(&CpuFrequency);
 
@@ -15,7 +15,7 @@ namespace Demon
 		QueryPerformanceCounter(&PrevFrequency);
 	}
 
-	void DTime::Update() {
+	void Time::Update() {
 		// Retrieve current frequency 
 		QueryPerformanceCounter(&CurrentFrequency);
 
@@ -32,7 +32,7 @@ namespace Demon
 		PrevFrequency.QuadPart = CurrentFrequency.QuadPart;
 	}
 
-	void DTime::Render(HDC hdc) {
+	void Time::Render(HDC hdc) {
 		static float time = 0.0f;
 
 		time += DeltaTimeValue;
