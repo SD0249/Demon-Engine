@@ -63,7 +63,7 @@ int main() {
 ❌ Lose Type Saftey and Structure <br />
 ❌ Harder to have persistent state in input handler (Possible for Lamdas to capture state or functor objects though)
 
-**Option 2: Using Inheritance / State Pattern** <br />
+**Option 2: Using Inheritance / Strategy Pattern** <br />
 ```cpp
 #include <memory>
 
