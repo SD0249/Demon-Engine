@@ -1,5 +1,7 @@
 #pragma once
 #include "../DemonEngine_SOURCE/Demon_Scene.h"
+#include "../DemonEngine_SOURCE/Demon_Transform.h"
+#include "../DemonEngine_SOURCE/Demon_SpriteRenderer.h"
 
 namespace Demon
 {

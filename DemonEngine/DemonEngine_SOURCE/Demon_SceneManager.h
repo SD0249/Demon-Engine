@@ -8,6 +8,8 @@ namespace Demon
 	class SceneManager
 	{
 	public:
+
+		// Create new Scene (existing child scene type)
 		template <typename T> // Types of scenes will be implemented as different classes, so Template is used here
 		static Scene* CreateScene(const std::wstring& name) {
 			T* scene = new T();
@@ -19,6 +21,7 @@ namespace Demon
 			return scene;
 		}
 
+		// Load a certain scene by name, it becomes the active scene
 		static Scene* LoadScene(const std::wstring& name) {
 			// List, map, etc, returns a pointer of that object
 			std::map<std::wstring, Scene*>::iterator iter = Scenes.find(name);

@@ -39,14 +39,7 @@ namespace Demon{
 		UINT mWidth;	// Screen Width		(Related to Resolution)
 		UINT mHeight;	// Screen Height	(Related to Resolution)
 		
-		// Player -> Instead of storing every object and tracking them like this, we make a base class to handle EACH Game Objects
-		// OBJECT ORIENTED PROGRAMMING!
-		GameObject Player1{std::make_unique<WASDInput>(), RGB(0, 0, 255), "Rectangle"};
-		GameObject Player2{std::make_unique<ArrowInput>(), RGB(255, 0, 0), "Circle"};
-
-
-		// In one scene, there are various game objects. Application will hold multiple scene objects that holds their game objects
-		// std::vector<Scene*> scenes;
+		// In one scene, there are various game objects. SceneManager handles managing the scene for the application to only run
 	};
 };
 

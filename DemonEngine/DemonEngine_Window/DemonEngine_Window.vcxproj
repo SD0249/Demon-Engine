@@ -129,9 +129,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Demon_LoadScenes.h" />
+    <ClInclude Include="Demon_Player.h" />
     <ClInclude Include="Demon_PlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Demon_Player.cpp" />
     <ClCompile Include="Demon_PlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -12,10 +12,17 @@ namespace Demon
 
 	void PlayScene::Initialize()
 	{
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			GameObject* gameObj = new GameObject();
-			gameObj->SetPosition(rand() % 1600, rand() % 900);
+
+			Transform* tr = gameObj->AddComponent<Transform>();
+			tr->SetPosition(rand() % 1601, rand() % 901);
+			tr->SetName(L"Transform");
+
+			SpriteRenderer* sr = gameObj->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SpriteRenderer");
+
 			AddGameObject(gameObj);
 		}
 	}

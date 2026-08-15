@@ -4,6 +4,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{43029495-19d2-4099-a84a-24427980e05b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{0a7bd667-e935-47d4-8931-b3a4168fe54d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Demon_LoadScenes.h">
@@ -12,10 +15,16 @@
     <ClInclude Include="Demon_PlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Demon_Player.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demon_PlayScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Demon_Player.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

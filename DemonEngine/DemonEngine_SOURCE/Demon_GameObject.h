@@ -4,6 +4,7 @@
 #include <random>
 #include "Demon_Input.h"
 #include "Demon_Time.h"
+#include "Demon_Component.h"
 
 namespace Demon
 {
@@ -13,6 +14,7 @@ namespace Demon
 	//---------------------------------------------------------------
 	// Different Input Implementation for Game Object Instances (Strategy Pattern - just implements the same behavior in different ways)
 	// ** Not State pattern (doesn't have internal state changes(and hence the behavior changes))
+	// ** Needs to be refactored as a component
 	//---------------------------------------------------------------
 	
 	// Base Class
@@ -85,31 +87,44 @@ namespace Demon
 
 	public:
 		// Constructor and Destructor
-		GameObject(std::unique_ptr<InputState> inputState = std::make_unique<WASDInput>(),	// Default: WASD Input
-				   COLORREF color = RGB(rand() % 256, rand() % 256, rand() % 256),			// Default: Random Color
-				   std::string shape = "Rectangle");										// Default: Rectangle
+		GameObject();										
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-		// Since the Position Members are private, it needs a function that makes it accessible to other classes
-		void SetPosition(float x, float y)
-		{
-			mX = x;
-			mY = y;
+		// Add a component to game object (Creates desired component and assigns it to object)
+		template <typename T>
+		T* AddComponent() {
+			T* comp = new T();
+			comp->SetOwner(this);			// Component also needs reference to its owner object
+			Components.push_back(comp);
+			return comp;
 		}
 
-		float GetPositionX() { return mX; }
+		// Return this component from inner components list
+		template <typename T>
+		T* GetComponent() {
+			T* component = nullptr;	
+			for (Component* comp : Components)		// Loop through components list to find it
+			{
+				component = dynamic_cast<T*>(comp);	// If c doesn't have the same type as comp, it won't be assigned - stay as nullptr
+				if (component)						// If assigned, break out from loop
+					break;
+			}
 
-		float GetPositionY() { return mY; }
+			return component;
+		}
+
 
 	private:
-		// Game Object's Coordinate
-		float mX;
-		float mY;
+		// A game object instance holds various components to support its functionalites
+		std::vector<Component*> Components;
 
+		//---------------------------------------------------------------------------
+		// These functionalities will all be swtiched to components
 		// InputState Obj --> unique_ptr cannot be copied as an argument; it must be moved(std::move)
 		std::unique_ptr<InputState> inputState_;
 
@@ -118,6 +133,7 @@ namespace Demon
 
 		// Shape Data
 		std::string shape_;
+		//---------------------------------------------------------------------------
 	};
 };
 
