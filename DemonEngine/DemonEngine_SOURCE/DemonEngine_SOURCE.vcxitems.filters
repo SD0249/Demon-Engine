@@ -21,6 +21,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Transform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Math.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Application.h" />
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Transform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

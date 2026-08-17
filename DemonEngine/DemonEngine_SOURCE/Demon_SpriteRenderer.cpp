@@ -1,7 +1,7 @@
 #include "Demon_SpriteRenderer.h"
 
 namespace Demon {
-	SpriteRenderer::SpriteRenderer()
+	SpriteRenderer::SpriteRenderer() : image(nullptr), width(0), height(0)
 	{
 	}
 
@@ -23,21 +23,28 @@ namespace Demon {
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		// Create color brush
-		HBRUSH colorBrush = CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
-
-		// Select the color brush on DC and DON'T FORGET TO SAVE THE DEFAULT white brush (Returns Handle of previous brush)
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, colorBrush);
-
-		// Draw a shape with the constantly updated value
+		// Get Transform of this object
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 
-		Rectangle(hdc, tr->GetX(), tr->GetY(), 100 + tr->GetX(), 100 + tr->GetY());
+		// Retrieve position vector from transform
+		Vector2 pos = tr->GetPosition();
 
-		// Select default brush
-		SelectObject(hdc, oldBrush);
-
-		// Delete old brush -> No wasting memory
-		DeleteObject(colorBrush);
+		// Create a graphics object and use that to draw loaded image
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(image, Gdiplus::Rect(pos._x, pos._y, width, height));
 	}
+
+
+	/// <summary>
+	/// Loads image for this sprite renderer to draw from given path
+	/// </summary>
+	/// <param name="path">Path to retrieve sprite to be assigned</param>
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		image = Gdiplus::Image::FromFile(path.c_str());	// c_str(): converts c++ style string to traditional C string
+		width = image->GetWidth();
+		height = image->GetHeight();
+	}
+
+
 }

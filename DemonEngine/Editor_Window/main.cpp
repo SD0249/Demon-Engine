@@ -22,6 +22,9 @@
 
 Demon::Application application;
 
+ULONG_PTR gpToken;                  // ULONG_PTR:  unsigned long type used for pointer precision | used when casting ptr to long type to perform pointer arithmetic
+Gdiplus::GdiplusStartupInput gpsi;
+
 #define MAX_LOADSTRING 100
 
 // Global Variables:
@@ -87,6 +90,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,                 // Current Progr
         }
     }
 
+    Gdiplus::GdiplusShutdown(gpToken);
 
     // Main message loop:
     // Underlying structure -> Message Queue
@@ -157,6 +161,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
                              hInstance,                          // This program's handle
                              nullptr);                           // The place to store things from CREATESTRUCT/Usually uses NULL value
 
+   // Initialize application
    application.Initialize(hWnd, width, height);
 
    if (!hWnd)
@@ -169,6 +174,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //              But what you need to do here is just to pass in the argument given from the WinMain function
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // Load Scene
    Demon::LoadScenes();

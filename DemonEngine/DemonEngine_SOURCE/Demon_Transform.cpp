@@ -1,7 +1,7 @@
 #include "Demon_Transform.h"
 
 namespace Demon {
-	Transform::Transform() : X(0), Y(0)
+	Transform::Transform() : _position(Vector2())
 	{
 	}
 

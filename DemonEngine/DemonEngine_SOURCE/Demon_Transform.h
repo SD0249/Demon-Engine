@@ -3,6 +3,8 @@
 #include "Demon_Component.h"
 
 namespace Demon {
+
+	using namespace math;
 	class Transform : public Component
 	{
 	public:
@@ -15,13 +17,11 @@ namespace Demon {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPosition(float x, float y) { X = x; Y = y; }
-		float GetX() { return X; }
-		float GetY() { return Y; }
+		void SetPosition(Vector2 pos) { _position._x = pos._x; _position._y = pos._y; }
+		Vector2 GetPosition() { return _position; }
 
 	private:
-		float X;
-		float Y;
+		Vector2 _position;
 	};
 }
 

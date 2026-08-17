@@ -18,6 +18,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Scene.h" />
@@ -30,6 +33,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Math.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Scene.cpp" />

@@ -16,8 +16,12 @@ namespace Demon {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-	private:
+		void ImageLoad(const std::wstring& path);
 
+	private:
+		Gdiplus::Image* image;	// Sprite to be rendered
+		UINT width;				// Width 
+		UINT height;			// Height
 	};
 }
 
