@@ -13,7 +13,7 @@ namespace Demon
 	void PlayScene::Initialize()
 	{
 		// Initialize background object
-		GameObject* bg = new GameObject();
+		bg = new Player();
 
 		Transform* tr = bg->AddComponent<Transform>();
 		tr->SetPosition(Vector2(0, 0));
@@ -23,7 +23,7 @@ namespace Demon
 		sr->SetName(L"SpriteRenderer");
 		sr->ImageLoad(L"../Resources/NYCbg.png");
 
-		AddGameObject(bg);
+		AddGameObject(bg, LayerType::BackGround);
 	}
 
 	void PlayScene::Update()
@@ -34,10 +34,23 @@ namespace Demon
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+			SceneManager::LoadScene(L"TitleScene");
 	}
 
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+	}
+
+	void PlayScene::OnEnter()
+	{
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPosition(Vector2(0, 0));
 	}
 }

@@ -131,10 +131,12 @@
     <ClInclude Include="Demon_LoadScenes.h" />
     <ClInclude Include="Demon_Player.h" />
     <ClInclude Include="Demon_PlayScene.h" />
+    <ClInclude Include="Demon_TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demon_Player.cpp" />
     <ClCompile Include="Demon_PlayScene.cpp" />
+    <ClCompile Include="Demon_TitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

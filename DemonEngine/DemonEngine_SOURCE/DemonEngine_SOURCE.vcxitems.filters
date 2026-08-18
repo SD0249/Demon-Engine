@@ -21,9 +21,14 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Transform.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Math.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Resource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Layer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Demon_Math.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Application.h" />
@@ -49,9 +54,17 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Transform.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Layer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_LayerEnum.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -65,6 +78,9 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{98103898-9fe3-4925-a748-367fbdf4b905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{64c70cd0-9e34-4c81-88bd-bd8b1acb66fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

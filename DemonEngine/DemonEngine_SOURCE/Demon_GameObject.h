@@ -99,6 +99,7 @@ namespace Demon
 		template <typename T>
 		T* AddComponent() {
 			T* comp = new T();
+			comp->Initialize();
 			comp->SetOwner(this);			// Component also needs reference to its owner object
 			Components.push_back(comp);
 			return comp;

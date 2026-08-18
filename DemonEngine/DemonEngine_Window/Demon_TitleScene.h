@@ -1,17 +1,13 @@
 #pragma once
 #include "../DemonEngine_SOURCE/Demon_Scene.h"
 #include "../DemonEngine_SOURCE/Demon_SceneManager.h"
-#include "../DemonEngine_SOURCE/Demon_Transform.h"
-#include "../DemonEngine_SOURCE/Demon_SpriteRenderer.h"
-#include "../DemonEngine_Window/Demon_Player.h"
 
-namespace Demon
-{
-	class PlayScene : public Scene
+namespace Demon {
+	class TitleScene : public Scene
 	{
 	public:
-		PlayScene();
-		~PlayScene();
+		TitleScene();
+		~TitleScene();
 
 		// Some of the core main loop functions are needed here too
 		void Initialize() override;
@@ -23,7 +19,7 @@ namespace Demon
 		void OnExit() override;
 
 	private:
-		Player* bg;
+		
 	};
 }
 

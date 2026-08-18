@@ -23,6 +23,10 @@ namespace Demon
 
 		// Load a certain scene by name, it becomes the active scene
 		static Scene* LoadScene(const std::wstring& name) {
+			// Call the current scene on exit (if there is one)
+			if(activeScene)
+				activeScene->OnExit();
+
 			// List, map, etc, returns a pointer of that object
 			std::map<std::wstring, Scene*>::iterator iter = Scenes.find(name);
 
@@ -30,6 +34,8 @@ namespace Demon
 			if (iter == Scenes.end()) return nullptr;
 
 			activeScene = iter->second;
+
+			activeScene->OnEnter();	// Call the next active scene on enter after assignment
 
 			return iter->second;	// Return value of map
 		}

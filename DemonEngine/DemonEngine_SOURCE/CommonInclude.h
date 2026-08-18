@@ -16,3 +16,5 @@
 
 #include <gdiplus.h>					// gdiplus.h: Allows applications to use 2D graphics, images, and typography
 #pragma comment(lib, "gdiplus.lib")
+
+#include "Demon_LayerEnum.h"

@@ -1,6 +1,7 @@
 #include "Demon_Application.h"
 #include "Demon_Input.h"
 #include "Demon_Time.h"
+#include "Demon_Layer.h"
 
 namespace Demon {
 
@@ -54,7 +55,7 @@ namespace Demon {
 
 	void Application::LateUpdate()
 	{
-		
+		SceneManager::LateUpdate();
 	}
 
 	// 매 프래임, 아무 메시지가 없어도 물체를 계속 그린다 -> That's why we used Peek Message instead of Get Message
@@ -68,7 +69,7 @@ namespace Demon {
 		// Even though we want the player to handle their own drawing, 
 		// they don't have access for HDC, so we should pass that in as an argument
 		// --> OBJECT RENDER LOGIC moved inside Object Rendering (Each object handles their own rendering)
-		// This also gets encapsulated inside each respective scenes
+		// This also gets encapsulated inside each respective scenes (Renders the active scene)
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget();
