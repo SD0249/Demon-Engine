@@ -62,7 +62,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_LayerEnum.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Enums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Object.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

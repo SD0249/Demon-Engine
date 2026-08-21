@@ -17,10 +17,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Component.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_LayerEnum.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Enums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_Resources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Demon_SceneManager.h" />

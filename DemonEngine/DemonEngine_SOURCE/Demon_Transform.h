@@ -4,7 +4,7 @@
 
 namespace Demon {
 
-	using namespace math;
+	using namespace Demon::math;
 	class Transform : public Component
 	{
 	public:

@@ -21,7 +21,7 @@ namespace Demon {
 		virtual void OnEnter();		// Triggers things when player enters scene
 		virtual void OnExit();		// Trigger things like resetting position & HP etc when player leaves scene
 
-		void AddGameObject(GameObject* gameObj, LayerType type);
+		void AddGameObject(GameObject* gameObj, enums::LayerType type);
 
 	private: 
 		std::vector<Layer*> Layers;				// Each layer holds the game objects that belong to them

@@ -5,15 +5,17 @@ namespace Demon
 	Scene::Scene()
 		: Layers{}
 	{
-		Layers.resize((UINT)LayerType::Max);	
+		Layers.resize((UINT)enums::LayerType::Max);	
 		/*for (size_t i = 0; i < (UINT)LayerType::Max; i++) {
 			Layers[i] = new Layer();
 		}*/
 
 		std::for_each(Layers.begin(), Layers.end(), 
-			[](Layer*& layer)						// Layer*& because the pointer points to nothing. (Layer* modifies what is inside the object / Layer*& changes where the pointer points)
-											        // Basically if the pointer assigns the new object with a new address,
-													//it is thrown away after the function ends
+			[](Layer*& layer)						// Layer*& should be used. (Layer* modifies what is inside the object / Layer*& changes where the pointer points)
+											        // Basically if the pointer points to a new address that points to new object,
+													// it is thrown away after the function ends, because it modified the copy (pointer is a VALUE and it is copied when passed as a parameter)
+													// Using Layer*, the value inside pointer(address to obj) is copied(pointer itself is given a new address).
+													// However, using Layer*&, the pointer keeps its original address and points to the new object created
 			{
 				layer = new Layer();
 			});
@@ -59,7 +61,7 @@ namespace Demon
 	}
 
 
-	void Scene::AddGameObject(GameObject* gameObj, LayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, enums::LayerType type)
 	{
 		if (gameObj == nullptr) return;
 

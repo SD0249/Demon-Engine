@@ -23,7 +23,7 @@ namespace Demon
 		sr->SetName(L"SpriteRenderer");
 		sr->ImageLoad(L"../Resources/NYCbg.png");
 
-		AddGameObject(bg, LayerType::BackGround);
+		AddGameObject(bg, enums::LayerType::BackGround);
 	}
 
 	void PlayScene::Update()
